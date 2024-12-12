@@ -53,4 +53,5 @@ public class RegisterController {
 		// map.put("amount", user.getAmount()); // Display the entered amount
 		return "paymentSuccess.html"; // Redirect to the success page
 	}
+
 }
