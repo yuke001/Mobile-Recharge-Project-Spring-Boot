@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recharge Page</title>
+    <style>
+      /* Global reset for margins, paddings and box-sizing */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Body styling */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f7fc; /* Light background */
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+      }
+
+      /* Container styling */
+      .container {
+        background-color: #fff;
+        padding: 3rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      h3 {
+        color: #4caf50; /* Success color */
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      /* Label styling */
+      label {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        display: block;
+        color: #333;
+      }
+
+      /* Input field styling */
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        box-sizing: border-box;
+        background-color: #fafafa;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus {
+        border-color: #4caf50;
+        outline: none;
+      }
+
+      /* Error messages styling */
+      span {
+        color: red;
+        font-size: 0.9rem;
+        display: block;
+        margin-top: 0.2rem;
+      }
+
+      /* Button styling */
+      button {
+        width: 100%;
+        padding: 1rem;
+        background-color: #ff6f61;
+        color: white;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #e55a4e;
+      }
+
+      /* Responsive styling */
+      @media (max-width: 600px) {
+        .container {
+          padding: 2rem;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Recharge Your Mobile</h1>
+      <h3 th:text="${success}"></h3>
+      <form action="/register" method="post" th:object="${user}">
+        <!-- Name input -->
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          th:field="*{name}"
+          placeholder="Enter your name"
+        />
+        <span th:errors="*{name}"></span>
+
+        <!-- Mobile input -->
+        <label>Mobile</label>
+        <input
+          type="text"
+          name="mobile"
+          th:field="*{mobile}"
+          placeholder="Enter your mobile number"
+        />
+        <span th:errors="*{mobile}"></span>
+
+        <!-- Amount input -->
+        <label for="amount">Amount</label>
+        <input
+          type="number"
+          name="amount"
+          th:field="*{amount}"
+          placeholder="Enter recharge amount"
+        />
+        <span th:errors="*{amount}"></span>
+
+        <!-- Email input -->
+        <label>Email:</label>
+        <input
+          type="text"
+          name="email"
+          th:field="*{email}"
+          placeholder="Enter your email"
+        />
+        <span th:errors="*{email}"></span>
+
+        <!-- Password input -->
+        <label>Password:</label>
+        <input
+          type="text"
+          name="password"
+          th:field="*{password}"
+          placeholder="Enter your password"
+        />
+        <span th:errors="*{password}"></span>
+
+        <!-- Confirm password input -->
+        <label>Confirm Password:</label>
+        <input
+          type="text"
+          name="confirmPassword"
+          th:field="*{confirmPassword}"
+          placeholder="Confirm your password"
+        />
+        <span th:errors="*{confirmPassword}"></span>
+
+        <!-- Submit button -->
+        <button type="submit">Recharge</button>
+      </form>
+    </div>
+  </body>
+</html>

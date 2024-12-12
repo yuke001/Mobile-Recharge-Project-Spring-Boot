@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page</title>
+    <style>
+      /* Resetting some default styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Full-page layout */
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f3f4f6; /* Light background */
+      }
+
+      /* Centered container */
+      .container {
+        text-align: center;
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Button Styles */
+      #rzp-button1 {
+        background-color: #ff6f61; /* Red button color */
+        color: white;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      /* Hover effect for the button */
+      #rzp-button1:hover {
+        background-color: #e55a4e;
+      }
+
+      #rzp-button1:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Make a Payment</h1>
+      <button id="rzp-button1">Pay with Razorpay</button>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script th:inline="javascript">
+      // Razorpay options object
+      var options = {
+          "key": /*[[${razorpayKey}]]*/, // Your Razorpay key
+          "amount": /*[[${amount}]]*/, // Amount to be paid (in paisa)
+          "currency": "INR", // Currency in which payment is to be made
+          "name": "Recharge", // Your business name
+          "description": "Test Transaction", // Payment description
+          "image": "https://example.com/logo.png", // Your logo URL
+          "order_id": /*[[${orderId}]]*/, // Order ID generated from your backend
+          "callback_url": "/success", // Redirect URL after successful payment
+          "prefill": {
+              "name": "Gaurav Kumar",
+              "email": "gaurav.kumar@example.com",
+              "contact": "9000090000"
+          },
+          "notes": {
+              "address": "Razorpay Corporate Office"
+          },
+          "theme": {
+              "color": "#F29F58" // Custom color for Razorpay button
+          }
+      };
+
+      var rzp1 = new Razorpay(options);
+      document.getElementById('rzp-button1').onclick = function(e) {
+          rzp1.open();
+          e.preventDefault();
+      }
+    </script>
+  </body>
+</html>

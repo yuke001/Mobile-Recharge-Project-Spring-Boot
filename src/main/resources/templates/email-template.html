@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recharge Success</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      h1 {
+        color: #4caf50;
+        font-size: 36px;
+        margin-top: 20px;
+      }
+      p {
+        font-size: 18px;
+        color: #333;
+        line-height: 1.6;
+      }
+      .highlight {
+        font-weight: bold;
+        color: #4caf50;
+      }
+      .footer {
+        font-size: 14px;
+        color: #888;
+        margin-top: 40px;
+      }
+      .footer a {
+        color: #4caf50;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Recharge Successful!</h1>
+      <p>Dear <span class="highlight" th:text="${user.name}"></span>,</p>
+      <p>
+        Your recharge was successful! The amount of
+        <span class="highlight" th:text="${amount}"></span> has been credited to
+        your account.
+      </p>
+      <p>Thank you for choosing us!</p>
+      <div class="footer">
+        <p>
+          For any queries, feel free to
+          <a href="mailto:yuke00siva@gmail.com">contact us</a>.
+        </p>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>

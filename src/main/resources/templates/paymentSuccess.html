@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Success</title>
+    <style>
+      #container {
+        max-width: 500px;
+        margin: 30px auto;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #27ae60;
+      }
+
+      p {
+        font-size: 18px;
+        color: #34495e;
+      }
+
+      .success {
+        font-weight: bold;
+        color: #2ecc71;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Payment Successful</h1>
+      <p class="success">Thank you, <span th:text="${name}"></span>!</p>
+      <p>
+        You have successfully made a recharge of
+        <span th:text="${amount}"></span> INR.
+      </p>
+    </div>
+  </body>
+</html>
