@@ -42,7 +42,7 @@ public class UserService {
 
 	public String payment(int amount, ModelMap map) throws RazorpayException {
 
-		RazorpayClient razorpay = new RazorpayClient("rzp_test_LjeUdOv6BXQ9uv", "u8Q7IpDTKcedhm0wa14Ud4Mu");
+		RazorpayClient razorpay = new RazorpayClient("rzp_test_LjeUdOv6BXQ9uvy", "u8Q7IpDTKcedhm0wa14Ud4Muy");
 
 		JSONObject orderRequest = new JSONObject();
 		orderRequest.put("amount", amount * 100);
